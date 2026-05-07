@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Management System</title>
+    <!-- <link rel="stylesheet" href="/TaskManagementSystem/style.css" /> -->
+     <link rel="stylesheet" href="./style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="box">
+      <div class="left-menu">
+        <!-- left heading -->
+        <div class="left-heading-sym">
+          <div class="sym">
+            <i class="fa-solid fa-table-cells-large fa-xl sybl-heading"></i>
+          </div>
+          <div class="side-heading">
+            <h1>TaskFlow</h1>
+            <p>ENTERPRISE PLAN</p>
+          </div>
+        </div>
+
+        <!-- moduls -->
+        <div class="moduls">
+          <!-- dashboard -->
+          <div class="dashboard modul">
+            <i class="fa-solid fa-table-cells-large fa-lg"></i>
+            <p>Dashboard</p>
+          </div>
+
+          <!-- Boards -->
+          <div class="boards modul">
+            <i class="fa-solid fa-chart-column fa-lg"></i>
+            <p>Boards</p>
+          </div>
+
+          <!-- Team -->
+          <div class="team modul">
+            <i class="fa-solid fa-users fa-lg"></i>
+            <p>Team</p>
+          </div>
+
+          <!-- Reports -->
+          <div class="reports modul">
+            <i class="fa-regular fa-file fa-lg"></i>
+            <p>Reports</p>
+          </div>
+        </div>
+
+        <!-- setting and archive -->
+        <div class="about-details">
+          <!-- archive -->
+          <div class="archive modul">
+            <i class="fa-solid fa-box-archive fa-xl"></i>
+            <p>Archive</p>
+          </div>
+          <!-- setting -->
+          <div class="setting modul">
+            <i class="fa-solid fa-gear fa-xl"></i>
+            <p>Settings</p>
+          </div>
+        </div>
+      </div>
+      <!-- main body -->
+      <div class="main-body">
+        <!-- nav-bar -->
+        <div class="nav-bar">
+          <div class="headings">
+            <h2>Task Flow</h2>
+          </div>
+          <div class="serach-bars">
+            <input
+              type="text"
+              placeholder="Search Task"
+              class="search"
+              id="searchInput"
+            />
+            <div class="help-symbol">
+              <i class="fa-regular fa-bell fa-xl"></i>
+              <i class="fa-regular fa-circle-question fa-xl"></i>
+            </div>
+          </div>
+          <div class="profile">
+            <div class="names">
+              <p><b>Lakhan P</b></p>
+              <p>Product Manager</p>
+            </div>
+            <div>
+              <i class="fa-regular fa-circle-user fa-2xl"></i>
+            </div>
+          </div>
+        </div>
+
+         
+        <div class="main-contain">
+          <!-- heading and filter -->
+          <div class="heading-section">
+            <div class="sec-heading">
+              <h1>Task Assignment Board</h1>
+              <p> Strategic Prioritization & Capacity</p>
+            </div>
+            <div class="filter-section">
+              <p>Filter</p>
+              <select id="priorityFilter">
+              <option value="all">All Priorities</option>
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
+            </select>
+            </div>
+          </div>
+
+         
+          <!-- task columns -->
+          <div class="task-columns" id="task-clm">
+            <!-- 1st columns to do -->
+            <div class="to-do" id="todo">
+              <h2 class="column-heading">To Do </h2>
+              <div id="to-do-cards" class="column">
+                <div class="card">
+                  <!-- <div class="priority-div">
+                    <span class="priority">High</span>
+                  </div>
+                  <p class="cad-heading"><b>API Authenticator Refactor</b></p>
+                  <p class="card-description">
+                    Migrate legacy OAuth 1.0 service to OAuth 2.0 with proper
+                    JWT validation.
+                  </p>
+                  
+                  <div class="card-date-profile">
+                    <p>oct 24</p>
+                    <i class="fa-regular fa-circle-user"></i>
+                  </div> -->
+                </div>
+              </div>
+              <button class="create-task" id="addBtn">+ Create Task</button>
+            </div>
+           
+            <!-- In Progress -->
+            <div class="in-progress" id="inprogress">
+              <h2>In Progress</h2>
+              <div id="inprogress-cards" class="column"></div>
+            </div>
+
+            <!-- Completed -->
+            <div class="completed" id="completed">
+              <h2>Completed</h2>
+              <div id="completed-cards" class="column"></div>
+            </div>
+
+            <!-- 4th columns other information -->
+            <div class="other-information">
+              <!-- count of task in each col -->
+              <div class="task-stats">
+                <h2>Task Summary</h2>
+                <div class="count-container">
+                  <div class="state-box todocounts">
+                  <p>To Do</p>
+                  <h2 id="todoCount"></h2>
+                </div> 
+                <div class="state-box progrescounts">
+                  <p>In Progress</p>
+                  <h2 id="inprogressCount"></h2>
+                </div>
+                <div class="state-box completedcounts">
+                  <p>Completed</p>
+                  <h2 id="completedCount"></h2>
+                </div>
+                </div>
+              </div>
+
+              <!-- recently activity -->
+              <div class="recent-activity">
+                <div class="recent-heading">
+                  <i class="fa-solid fa-clock-rotate-left"></i>
+                  <p><b>Recent Activity</b></p>
+                </div>
+                <div class="activity">
+                  <i class="fa-regular fa-circle-user fa-lg"></i>
+                  <div class="activity-info">
+                    <p>Abhi moved API Auth to In Progress</p>
+                    <p class="time-comment">2 hours ago</p>
+                  </div>
+                </div>
+                <div class="activity">
+                  <i class="fa-regular fa-circle-user fa-lg"></i>
+                  <div class="activity-info">
+                    <p>Vedant commented on database Sharding</p>
+                    <p class="time-comment">4 hours ago</p>
+                  </div>
+                </div>
+                <div class="activity">
+                  <i class="fa-regular fa-circle-user fa-lg"></i>
+                  <div class="activity-info">
+                    <p>Anuj Completed Dark Mode Support</p>
+                    <p class="time-comment">Yesterday</p>
+                  </div>
+                </div>
+                 <div class="view-all-activity">View All Activity</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Form model  -->
+     <div class="model hidden" id="modal">
+        <div class="modal-box">
+            <span id="closeBtn">X</span>
+            <h2 id="form-heading">Add Task</h2>
+
+            <form id="form">
+                Title
+                <input type="text" id="title" placeholder="Title" required>
+                Description
+                <textarea  id="desc" placeholder="Description" required></textarea>
+                Date
+                <input type="date" id="date" required>
+                <select  id="priority" required>
+                    <option value="">Selecting Priority</option>
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                </select>
+
+                <div class="actions">
+                    <button type="button" id="clearBtn">Clear</button>
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+
+     </div>
+     
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
+
